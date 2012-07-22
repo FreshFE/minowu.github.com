@@ -15,17 +15,26 @@
 
         function zoomShow(src, highSrc){
 
-            var img = null;
+            // 插入低分辨率图片
+            var low = '<img id="zoomlayLow" src="'+ src +'">';
 
-            if(highSrc){
-                console.log('存在高清了');
-                img = '<img lowsrc="'+ src +'" src="'+ highSrc +'">';
-            }else{
-                img = '<img src="'+ src +'">';
-            }
-
-            zoomlayPage.html(img);
+            zoomlayPage.html(low);
             zoomlay.fadeIn(800);
+
+            // 如果存在高分辨率图片
+            // 插入zoomlay中，并等待加载完毕后替换low图片
+            if(highSrc){
+                var high = '<img id="zoomlayHigh" src="'+ highSrc +'">';
+                zoomlayPage.append(high);
+
+                var $high = $('#zoomlayHigh'),
+                    $low = $('#zoomlayLow');
+
+                $high.load(function(){
+                    $low.hide();
+                    $high.show();
+                });
+            }
         }
 
         function zoomHide(){
@@ -62,13 +71,7 @@
             };
         }
 
-        // turn
         magazine.turn(turnSetting);
-
-        // $(window).resize(function(){
-        //     console.log('e');
-        //     magazine.turn("resize");
-        // });
 
         magazine.on("turning", function(event, page, view) {
             allowZoom = false;
