@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Template for mino</title>
+
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" type="text/css" href="css/mebasic.css">
+	<script type="text/javascript" src="lib/utils/modernizr.min.js"></script>
+
+	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+</head>
+<body>
+
+	<div class="header">
+		<div class="shortcut">
+			<!-- <a href="#" class="mag-btn mag-btn-zoomin"><i class="icon-zoom-in"></i> 放大</a>
+			<a href="#" class="mag-btn mag-btn-zoomout"><i class="icon-zoom-out"></i> 缩小</a> -->
+
+			<a href="#" class="mag-btn" id="mag-first">封面</a>
+			<a href="#" class="mag-btn" id="mag-preview"><i class="icon-chevron-up"></i> 上一页</a>
+			<a href="#" class="mag-btn" id="mag-next"><i class="icon-chevron-down"></i> 下一页</a>
+			<a href="#" class="mag-btn" id="mag-zoom"><i class="icon-chevron-down"></i> 改变大小</a>
+		</div>
+	</div>
+
+	<div class="wrapper" id="wrapper">
+		<div id="magazine-zoom" class="magazine-wrapper">
+			<div class="magazine" id="magazine">
+				<div class="hard"><img src="images/page1.jpg"></div>
+				<div><img src="images/page2.jpg" data-img="images/page2_l.jpg"></div>
+				<div><img src="images/page3.jpg" data-img="images/page3_l.jpg"></div>
+				<div><img src="images/page4.jpg"></div>
+				<div><img src="images/page5.jpg"></div>
+				<div><img src="images/page6.jpg"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="zoomlay" id="zoomlay">
+		<div class="page" id="zoomlay-page">
+			<!-- <img src="images/page1.jpg"> -->
+		</div>
+	</div>
+
+<!-- javascript Library -->
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/jquery/jquery.ui.min.js"></script>
+<script type="text/javascript" src="app/turn.min.js"></script>
+<!-- <script type="text/javascript" src="app/jquery.zoomooz.min.js"></script> -->
+<!-- <script type="text/javascript" src="app/jquery.zoom.js"></script> -->
+<script type="text/javascript" src="app/pack.js"></script>
+
+</body>
+</html>

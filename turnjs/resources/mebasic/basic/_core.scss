@@ -1,0 +1,52 @@
+/** Core 核心 */
+
+body {
+  color: #000;
+  font-family: "san-serif", arial, "Microsoft Yahei", STHeiTi, SimSun;
+  // font-family: "Hiragino Sans GB", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+ul.nav,
+ul.nav > li {
+  list-style: none;
+  list-style-image: none;
+  padding: 0;
+  margin: 0;
+}
+
+input,
+textarea,
+select,
+button {
+  color: #666;
+  font-family: "san-serif", arial, "Microsoft Yahei", STHeiTi, SimSun;
+  // font-family: "san-serif", arial, "Microsoft Yahei", STHeiTi, SimSun;
+  outline: none;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+// $linkColor: #F86B8A;
+$linkColor: #333;
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+  &:link {}
+  &:visited {}
+  &:hover {
+    color: darken($linkColor, 10%);
+    text-decoration: underline;
+  }
+  &:active{}
+}
+
+.clearfix {
+	@include clearfix();
+}
+
+.pull-right {
+  float: right;
+}
