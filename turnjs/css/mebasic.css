@@ -1918,24 +1918,25 @@ body {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
   opacity: 0.6;
 }
-/* line 29, ../resources/mebasic/project/_core.scss */
+/* line 28, ../resources/mebasic/project/_core.scss */
 .header .shortcut .mag-btn i {
   background-image: url("../images/glyphicons-halflings-white.png");
 }
-/* line 32, ../resources/mebasic/project/_core.scss */
+/* line 31, ../resources/mebasic/project/_core.scss */
 .header .shortcut .mag-btn:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   background: #09a1ec;
 }
 
-/* line 41, ../resources/mebasic/project/_core.scss */
+/* line 39, ../resources/mebasic/project/_core.scss */
 .wrapper {
-  margin: 30px auto;
-  width: 1000px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-/* line 51, ../resources/mebasic/project/_core.scss */
+/* line 50, ../resources/mebasic/project/_core.scss */
 .magazine {
   top: 0;
   height: 0;
@@ -1945,18 +1946,18 @@ body {
   -o-transition: margin-left 1s;
   transition: margin-left 1s;
 }
-/* line 69, ../resources/mebasic/project/_core.scss */
+/* line 59, ../resources/mebasic/project/_core.scss */
 .magazine .page-wrapper {
   -webkit-perspective: 5000px;
   perspective: 5000px;
 }
-/* line 74, ../resources/mebasic/project/_core.scss */
+/* line 64, ../resources/mebasic/project/_core.scss */
 .magazine .shadow, .magazine.shadow {
   -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
-/* line 93, ../resources/mebasic/project/_core.scss */
+/* line 71, ../resources/mebasic/project/_core.scss */
 .magazine .odd::before, .magazine .even::before {
   content: "";
   position: absolute;
@@ -1968,33 +1969,65 @@ body {
   -moz-box-shadow: inset -10px 0 25px rgba(0, 0, 0, 0.7);
   box-shadow: inset -10px 0 25px rgba(0, 0, 0, 0.7);
 }
-/* line 106, ../resources/mebasic/project/_core.scss */
+/* line 84, ../resources/mebasic/project/_core.scss */
 .magazine .even::before {
   -webkit-box-shadow: inset 10px 0 25px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: inset 10px 0 25px rgba(0, 0, 0, 0.7);
   box-shadow: inset 10px 0 25px rgba(0, 0, 0, 0.7);
 }
 
-/* line 113, ../resources/mebasic/project/_core.scss */
+/* line 91, ../resources/mebasic/project/_core.scss */
 .zoomlay {
   display: none;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.8);
   position: absolute;
+  z-index: 220;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
 }
-/* line 123, ../resources/mebasic/project/_core.scss */
+/* line 101, ../resources/mebasic/project/_core.scss */
 .zoomlay .page {
-  width: 1000px;
   margin: 0 auto;
 }
-/* line 126, ../resources/mebasic/project/_core.scss */
+/* line 104, ../resources/mebasic/project/_core.scss */
 .zoomlay .page img {
-  width: 1000px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* line 111, ../resources/mebasic/project/_core.scss */
+.toolkit {
+  position: absolute;
+  z-index: 200;
+  top: 3px;
+  left: 0;
+  width: 122px;
+}
+/* line 117, ../resources/mebasic/project/_core.scss */
+.toolkit .mag-btn {
+  display: inline-block;
+  padding: 5px;
+  background: #000;
+  margin-left: 10px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+}
+/* line 124, ../resources/mebasic/project/_core.scss */
+.toolkit .mag-btn i {
+  background-image: url("../images/glyphicons-halflings-white.png");
+}
+/* line 127, ../resources/mebasic/project/_core.scss */
+.toolkit .mag-btn:hover {
+  background: #09a1ec;
+}
+/* line 130, ../resources/mebasic/project/_core.scss */
+.toolkit .mag-btn:first-child {
+  margin-left: 0;
 }

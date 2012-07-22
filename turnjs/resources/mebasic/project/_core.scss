@@ -37,8 +37,11 @@ $magazine_height: 600px;
 }
 
 .wrapper {
-	margin: 30px auto;
-	width: $magazine_width * 2;
+	// margin: 30px auto;
+	// width: $magazine_width * 2;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .magazine-wrapper {
@@ -90,16 +93,42 @@ $magazine_height: 600px;
 	overflow: hidden;
 	background: rgba(0,0,0,.8);
 	position: absolute;
+	z-index: 220;
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
 	.page {
-		width: $magazine_width * 2;
+		// width: $magazine_width * 2;
 		margin: 0 auto;
 		img {
-			width: $magazine_width * 2;
+			// width: $magazine_width * 2;
 			@include box-shadow(0 0 10px rgba(0,0,0,.2));
+		}
+	}
+}
+
+.toolkit {
+	position: absolute;
+	z-index: 200;
+	top: 3px;
+	left: 0;
+	width: 122px;
+	.mag-btn {
+		display: inline-block;
+		padding: 5px;
+		background: #000;
+		margin-left: 10px;
+		// border: 1px solid #fff;
+		@include border-radius(30px);
+		i {
+			background-image: url("../images/glyphicons-halflings-white.png");
+		}
+		&:hover {
+			background: #09a1ec;
+		}
+		&:first-child {
+			margin-left: 0;
 		}
 	}
 }
