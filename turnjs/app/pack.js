@@ -25,7 +25,7 @@
             // 插入zoomlay中，并等待加载完毕后替换low图片
             if(highSrc){
                 var high = '<img id="zoomlayHigh" src="'+ highSrc +'">';
-                zoomlayPage.append(high);
+                zoomlayPage.append(high).hide();
 
                 var $high = $('#zoomlayHigh'),
                     $low = $('#zoomlayLow');
