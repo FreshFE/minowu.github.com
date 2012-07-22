@@ -1990,6 +1990,7 @@ body {
 }
 /* line 101, ../resources/mebasic/project/_core.scss */
 .zoomlay .page {
+  width: 1000px;
   margin: 0 auto;
 }
 /* line 104, ../resources/mebasic/project/_core.scss */
@@ -2030,4 +2031,21 @@ body {
 /* line 130, ../resources/mebasic/project/_core.scss */
 .toolkit .mag-btn:first-child {
   margin-left: 0;
+}
+
+/* line 136, ../resources/mebasic/project/_core.scss */
+.update-browser {
+  position: absolute;
+  width: 100%;
+  background: #000;
+  color: #aaa;
+  z-index: 9999;
+}
+/* line 142, ../resources/mebasic/project/_core.scss */
+.update-browser .inner {
+  padding: 5px 10px;
+}
+/* line 145, ../resources/mebasic/project/_core.scss */
+.update-browser a {
+  color: #fff;
 }

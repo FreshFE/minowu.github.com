@@ -11,18 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="css/mebasic.css">
 	<script type="text/javascript" src="lib/utils/modernizr.min.js"></script>
 
-	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 </head>
 <body>
-
-	<!-- <div class="header">
-		<div class="shortcut">
-			<a href="#" class="mag-btn" id="mag-first">封面</a>
-			<a href="#" class="mag-btn" id="mag-preview"><i class="icon-chevron-up"></i> 上一页</a>
-			<a href="#" class="mag-btn" id="mag-next"><i class="icon-chevron-down"></i> 下一页</a>
-			<a href="#" class="mag-btn" id="mag-zoom"><i class="icon-chevron-down"></i> 改变大小</a>
-		</div>
-	</div> -->
 
 	<div class="wrapper" id="wrapper">
 		<div id="magazine-zoom" class="magazine-wrapper">
@@ -46,8 +36,15 @@
 		<a href="#" class="mag-btn" id="mag-first"><i class="icon-home"></i></a>
 		<a href="#" class="mag-btn" id="mag-preview"><i class="icon-chevron-up"></i></a>
 		<a href="#" class="mag-btn" id="mag-next"><i class="icon-chevron-down"></i></a>
-		<!-- <a href="#" class="mag-btn" id="mag-zoom"><i class="icon-retweet"></i></a> -->
 	</div>
+
+	<!--[if lt IE 9]>
+	<div class="update-browser">
+		<div class="inner">
+			你的游览器比较<em>陈旧了</em>，你游览器的当前是 IE 或 兼容模式，建议您升级到<a href="http://browsehappy.com/" target="_blank">最新游览器</a>，如果您安装的是第三方游览器，那么请尝试切换到<em>极速模式</em>。喜欢用IE的您也可以在IE上 <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">安装 Google Chrome Frame</a> 来获得更好的体验。
+		</div>
+	</div>
+	<![endif]-->
 
 	<!-- javascript Library -->
 	<script type="text/javascript" src="lib/jquery.min.js"></script>

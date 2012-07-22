@@ -99,7 +99,7 @@ $magazine_height: 600px;
 	top: 0;
 	left: 0;
 	.page {
-		// width: $magazine_width * 2;
+		width: $magazine_width * 2;
 		margin: 0 auto;
 		img {
 			// width: $magazine_width * 2;
@@ -130,5 +130,19 @@ $magazine_height: 600px;
 		&:first-child {
 			margin-left: 0;
 		}
+	}
+}
+
+.update-browser {
+	position: absolute;
+	width: 100%;
+	background: #000;
+	color: #aaa;
+	z-index: 9999;
+	.inner {
+		padding: 5px 10px;
+	}
+	a {
+		color: #fff;
 	}
 }

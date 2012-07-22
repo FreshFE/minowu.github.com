@@ -2,9 +2,6 @@
 
     "use strict";
 
-    // TODO: 自动适应屏幕尺寸
-    // TODO: 添加hash相关性
-
     // 构造函数
     var Turn = function(){};
 
@@ -23,45 +20,6 @@
             currentDisplay: 'double'
         },
 
-        zoom: {
-
-            elPage: $('#zoomlay-page'),
-            el: $('#zoomlay'),
-
-            opts: {},
-
-            show: function(src, highSrc, width){
-
-                this.elPage.css({'width': width + 'px'});
-
-                // 插入低分辨率图片
-                var low = '<img id="zoomlayLow" src="'+ src +'" width="'+ width +'">';
-
-                this.elPage.html(low);
-                this.el.fadeIn(800);
-
-                // 如果存在高分辨率图片
-                // 插入zoomlay中，并等待加载完毕后替换low图片
-                if(highSrc){
-                    var high = '<img id="zoomlayHigh" src="'+ highSrc +'" width="'+ width +'" style="display: none;">';
-                    this.elPage.append(high);
-
-                    var $high = $('#zoomlayHigh'),
-                        $low = $('#zoomlayLow');
-
-                    $high.load(function(){
-                        $low.hide();
-                        $high.show();
-                    });
-                }
-            },
-
-            hide: function(){
-                this.el.fadeOut('fast');
-                this.elPage.empty();
-            }
-        },
-
         initialize: function(){
             
             var that = this;
@@ -78,15 +36,16 @@
                     var selector = $(event.target),
                         img = $('img', selector),
                         src = img.attr('src'),
-                        highSrc = img.attr('data-img');
+                        highSrc = img.attr('data-img'),
+                        imgWidth;
 
                     if(that.opts.currentDisplay == 'double'){
-                        var width = that.opts.magWidth;
+                        imgWidth = that.opts.newMagWidth;
                     } else {
-                        var width = that.opts.magWidth * 2;
+                        imgWidth = that.opts.newMagWidth * 2;
                     }
 
-                    that.zoom.show(src, highSrc, width);
+                    that.zoom.show(src, highSrc, imgWidth);
                     return false;
                 }
             });
@@ -135,6 +94,43 @@
             });
         },
 
+        zoom: {
+
+            elPage: $('#zoomlay-page'),
+            el: $('#zoomlay'),
+
+            show: function(src, highSrc, width){
+
+                this.elPage.css({'width': width + 'px'});
+
+                // 插入低分辨率图片
+                var low = '<img id="zoomlayLow" src="'+ src +'" width="'+ width +'">';
+
+                this.elPage.html(low);
+                this.el.fadeIn(800);
+
+                // 如果存在高分辨率图片
+                // 插入zoomlay中，并等待加载完毕后替换low图片
+                if(highSrc){
+                    var high = '<img id="zoomlayHigh" src="'+ highSrc +'" width="'+ width +'" style="display: none;">';
+                    this.elPage.append(high);
+
+                    var $high = $('#zoomlayHigh'),
+                        $low = $('#zoomlayLow');
+
+                    $high.load(function(){
+                        $low.hide();
+                        $high.show();
+                    });
+                }
+            },
+
+            hide: function(){
+                this.el.fadeOut('fast');
+                this.elPage.empty();
+            }
+        },
+
         setPosition: function(){
 
             var win = $(window),
@@ -142,47 +138,46 @@
                 winHeight = win.height() - this.opts.margin * 2,
                 winScale = winWidth / winHeight,
 
-                imgWidth = this.opts.imgWidth,
-                imgHeight = this.opts.imgHeight,
-                magWidth = imgWidth * 2,
-                magHeight = imgHeight;
+                imgWidth = this.opts.imgWidth,      // 默认图片的宽度
+                imgHeight = this.opts.imgHeight,    // 默认图片的高度
+                magWidth = imgWidth * 2,            // 默认杂志的宽度
+                magHeight = imgHeight;              // 默认杂志的高度
 
             // 如果是single状态下，改变magWidth宽度
             if (winScale < 1 && winScale > 0){
-                console.log('single吗？');
                 magWidth = imgWidth;
             }
 
-            var magScale = magWidth / magHeight;
+            var magScale = magWidth / magHeight;    // 杂志的高宽比
 
+            // 判断窗口尺寸是否大于杂志尺寸
             if(winWidth < magWidth || winHeight < magHeight){
                 // 需要缩小长度和高度
-                console.log('窗口尺寸小于默认尺寸');
                 // 计算新的宽度和高度
                 if(magScale > winScale){
+                    // 根据窗口的宽度来得到高度
                     var newMagWidth = winWidth,
                         newMagHeight = newMagWidth / magScale;
                 } else {
+                    // 根据窗口的高度来得到宽度
                     var newMagHeight = winHeight,
                         newMagWidth = newMagHeight * magScale;
                 }
 
             } else {
-                console.log('窗口尺寸大于默认尺寸');
                 // 使用默认长度和高度
                 newMagWidth = imgWidth * 2;
                 newMagHeight = imgHeight;
             }
 
+            // 判断本地新尺寸是否和全局新尺寸一致
             if( this.opts.newMagWidth != newMagWidth || this.opts.newMagHeight != newMagHeight){
-                console.log('尺寸没有发生变化');
 
+                // 将新尺寸赋值于全局
                 this.opts.newMagWidth = newMagWidth;
                 this.opts.newMagHeight = newMagHeight;
 
-                this.zoom.opts.newMagWidth = newMagWidth;
-                this.zoom.opts.newMagHeight = newMagHeight;
-
+                // 设置magazine的尺寸
                 if(winScale > 1){
                     // Double
                     this.setDouble();
@@ -191,37 +186,37 @@
                     this.setSingle();
                 }
 
+                // 设置wrapper的尺寸
                 this.setWrapper(newMagWidth, newMagHeight);
             }
 
             // 改变wrapper的位置
             this.setWrapperPos();
-            // 改变toolkit的位置
 
         },
 
         setDouble: function(){
             var magWidth = this.opts.newMagWidth,
                 magHeight = this.opts.newMagHeight;
+
             this.el.turn("display", "double");
             this.el.turn('size', magWidth, magHeight);
             this.el.turn("resize");
+
             this.opts.currentDisplay = 'double';
             this.setImg((magWidth / 2), magHeight);
-
-            console.log('转化为double了。');
         },
 
         setSingle: function(){
             var magWidth = this.opts.newMagWidth,
                 magHeight = this.opts.newMagHeight;
+
             this.el.turn("display", "single");
             this.el.turn('size', magWidth, magHeight);
             this.el.turn("resize");
+
             this.opts.currentDisplay = 'single';
             this.setImg(magWidth, magHeight);
-
-            console.log('转化为single了。');
         },
 
         setImg: function(width, height){
@@ -229,7 +224,6 @@
         },
 
         setWrapper: function(magWidth, magHeight){
-            console.log('你好');
             $('#wrapper').css({'width': magWidth + 'px', 'height': magHeight + 'px'});
         },
 
@@ -246,8 +240,6 @@
                 left = ((winWidth - width) / 2),
                 top = ((winHeight - height) / 2);
 
-                console.log(width, winWidth, left, top);
-
                 wrapper.css({'top': top + 'px', 'left': left + 'px'});
 
             var toolkit = $('#toolkit'),
@@ -257,32 +249,26 @@
                 toolkit.css({'left': toolkitLeft + 'px'});
         },
 
-        positionTimeOut: function(){
-            positionTimeout(this, this.setPosition, 1000);
+        delaySetPosition: function(){
+            // 为setTimeOut调整作用域
+            var delayFunc = jQuery.proxy(this, "setPosition");
+            clearTimeout(window.TurnDelay);
+            window.TurnDelay = setTimeout(delayFunc, 1000);
         }
     }
 
-    // 设置延时函数
-    var positionTimeoutValue,
-        positionTimeout = function(obj, functions, time){
-            window.clearTimeout(positionTimeoutValue);
-            window.positionTimeoutFunctions = function(){
-                functions.call(obj);
-            }
-            positionTimeoutValue = setTimeout(window.positionTimeoutFunctions, time);
-        };
-
     $(document).ready(function(){
 
-        // 实例化
         var turn = new Turn;
         // 初始化
         turn.initialize();
+
         // 计算位置
         turn.setPosition();
+
         // 窗口尺寸改变时重新计算位置
         $(window).resize(function(){
-            turn.positionTimeOut();
+            turn.delaySetPosition();
         });
 
     });
