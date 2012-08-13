@@ -1,0 +1,33 @@
+/*
+
+Example Document
+
+*/
+
+body {}
+header { height: 30px; }
+.ex-nav { width: 160px; border-top: solid 1px #ddd; position: fixed; }
+.ex-nav > li > a { text-decoration: none; display: block; color: #999; padding: 5px 20px; }
+.ex-nav > li.current > a,
+.ex-nav > li:hover > a { background: #C43C35; color: #fff; }
+.ex-wrapper { width: 1160px; margin: 0 auto; }
+.ex-sidebar { width: 160px; float: left; }
+.ex-mainarea { width: 980px; float: right; border-left: solid 1px #ddd; padding-left: 19px; }
+section { margin-bottom: 40px; }
+h1.ex-title { font-size: 24px; padding-bottom: 5px; border-bottom: solid 1px #eee; }
+h2.ex-title { margin-bottom: 15px; font-weight: normal; }
+h2.ex-title em { color: #999; font-size: 0.8em; }
+h3.ex-title { padding-bottom: 5px; font-weight: normal; color: #C43C35; border-bottom: dashed 1px #ddd; }
+section .ex-note { padding: 20px; background: #f5f5f5; border-radius: 3px; border: solid 1px #ddd; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); margin-bottom: 20px; line-height: 22px; }
+section .ex-note.lin { line-height: normal; }
+section .ex-note strong { display: inline-block; color: #333; padding: 0 3px; font-family: sans-serif; }
+section .ex-note strong { padding: 3px 4px; color: #D14; border-radius: 3px; background-color: #F7F7F9; border: 1px solid #E1E1E8; }
+.ex-list { padding-left: 20px; }
+.ex-list li { list-style-type: decimal; margin-bottom: 10px; }
+.ex-block { margin-bottom: 20px; }
+.ex-block-left { width: 480px; float: left; }
+.ex-block-right { width: 480px; float: right; }
+.ex-block-four { width: 245px; float: left; }
+.ex-icon li { margin-bottom: 5px; font-family: sans-serif; }
+.ex-footer { padding: 20px 0; border-top: solid 1px #ddd; margin: 0 auto; }
+.ex-footer .ex-inner { width: 980px; text-align: right; color: #ccc; margin: 0 auto; }

@@ -1,0 +1,903 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>MeSide Basic Style</title>
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="css/example.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.min.js" language="javascript" type="text/javascript"></script>
+<script src="js/basic.js" language="javascript" type="text/javascript"></script>
+<script src="js/example.js" language="javascript" type="text/javascript"></script>
+</head>
+
+<body>
+
+<header></header>
+<div class="ex-wrapper">
+    <div class="ex-mainarea">
+        <section>
+            <h1 class="ex-title" id="text">Text，文字</h1>
+            <div class="ex-note lin">
+                <h1>h1.heading</h1>
+                <h2>h2.heading</h2>
+                <h3>h3.heading <span>vice title</span></h3>
+                <h4>h4.heading</h4>
+                <h5>h5.heading</h5>
+                <h6>h6.heading</h6>
+                <p><a href="#">默认超链接</a></p>
+            </div>
+        </section>
+        
+        <section>
+            <h1 class="ex-title" id="form">Form，表单</h1>
+            
+            <form action="#" class="input_form">
+                
+                <h2 class="ex-title">垂直表单 <em>(example 2.1)</em></h2>
+                
+                <div class="ex-note">
+                    MeBasic表单框架用几次结构的设计方式来达到目的，第一层是<strong>feature_area</strong>,feature_area的css样式是<strong>margin-bottom: 20px;</strong>，每个表单元素放置在一个feature_area内，如果仅仅是一个input元素，直接放入input就行。<strong>input[type=text]</strong>新增元素preValue内加入值，为input预算值，如<strong>preValue="电子邮件"</strong>
+                </div>
+                
+                <div class="feature_area">
+                    <input type="text" preValue="电子邮件" />
+                    <input type="password" preValue="这里输入密码" />
+                    <input type="submit" class="btn blue" value="确定" />
+                </div>
+                
+                <h2 class="ex-title">左右表单 <em>(example 2.2)</em></h2>
+                
+                <div class="ex-note">
+                    <ul class="ex-list">
+                        <li>如果您想使用左右表单，那么在<strong>feature_area</strong>内加入<strong>&lt;label class="mx-label"&gt;..&lt;/label&gt;</strong>和<strong>&lt;div class="mx-text"&gt;..&lt;/div&gt;</strong>，<strong>mx-label</strong>内加入标签名称，<strong>mx-text</strong>内加入表单。</li>
+                        <li>如果同一个标签内容内，有两行input，则在<strong>mx-text</strong>内加入<strong>&lt;div class="mx-text-block"&gt;..&lt;/div&gt;</strong>，如果需要两个input元素并列在一行内，则不需要加<strong>mx-text-block</strong>。</li>
+                        <li>如果您需要添加表单注释，可以使用<strong>&lt;div class="mx-text-suggest"&gt;..&lt;/div&gt;</strong>。</li>
+                        <li>如果需要在label名称内添加简短的注释文字，比如声明该元素是可选的，那么可以在<strong>label</strong>内使用<strong>&lt;span class="mx-optional"&gt;..&lt;/span&gt;</strong>。</li>
+                        <li>如果您想使input元素获得焦点时，显示提示的话，请在input的class<strong>input-tip</strong>和title提示内容。</li>
+                    </ul>
+                </div>
+                
+                <div class="feature_area">
+                    <label class="mx-label">电子邮件</label>
+                    <div class="mx-text">
+                        <input type="text" class="input-tip" title="范例：example@meside.com" />
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                
+                <div class="feature_area">
+                    <label class="mx-label">密码</label>
+                    <div class="mx-text">
+                        <input type="password" />
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                
+                <div class="feature_area">
+                    <label class="mx-label">地址</label>
+                    <div class="mx-text">
+                        <input type="text" class="tiny" preValue="国家" />
+                        <input type="text" class="short" preValue="城市" />
+                        <input type="text" class="medium" preValue="详细地址" />
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                
+                <div class="feature_area">
+                    <label class="mx-label">地址 <span class="mx-optional">(可选)</span></label>
+                    <div class="mx-text">
+                        <div class="mx-text-block">
+                            <input type="text" class="small" preValue="国家" />
+                        </div>
+                        <div class="mx-text-block">
+                            <input type="text" preValue="城市" />
+                        </div>
+                        <div class="mx-text-block">
+                            <input type="text" preValue="详细地址" />
+                        </div>
+                        <div class="mx-text-suggest">
+                            本段是Form注释使用方法，上面两个案例第一个未加入mx-text-block，第二个加入了mx-text-block。
+                        </div>
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                
+                <div class="feature_action gray">
+                    <div class="feature_button">
+                        <input type="submit" class="btn blue" value="注册" />
+                        <button class="btn gray">登录</button>
+                    </div>
+                </div>
+                
+                <h2 class="ex-title">其他表单类型 <em>(example 2.3)</em></h2>
+                
+                <div class="ex-note">
+                    <ul class="ex-list">
+                        <li>开始时间选项处，最后一项input是多项选择的input。</li>
+                        <li>在Textarea中的class中，<strong>large</strong>决定了Textarea的宽度，属性<strong>rows</strong>决定Textarea的高度。<strong>noresize</strong>取消Textarea的resize功能。</li>
+                    </ul>
+                </div>
+                
+                <div class="feature_area">
+                    <label class="mx-label">默认select</label>
+                    <div class="mx-text">
+                        <select>
+                            <option value="none">选择月份</option>
+                            <option value="1">一月</option>
+                            <option value="2">二月</option>
+                            <option value="3">三月</option>
+                        </select>
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                
+                <div class="feature_area">
+                    <label class="mx-label">制定select</label>
+                    <div class="mx-text">
+                        <div class="select">
+                            <ul class="downlist">
+                                <li><a href="javascript:void(0);" value="1">一月</a></li>
+                                <li><a href="javascript:void(0);" value="2">二月</a></li>
+                                <li><a href="javascript:void(0);" value="3">三月</a></li>
+                            </ul>
+                            <div class="title"><div>月份</div></div>
+                            <input class="data" type="hidden" value="none" />
+                        </div>
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                
+                <div class="feature_area">
+                	<label class="mx-label">开始时间</label>
+                    <div class="mx-text">
+                    	<input type="text" class="small" value="2012-02-21" js="datepicker" />
+                        <span class="input-mark append"><i class="icon-calendar"></i></span>
+                        <input type="text" name="title" class="min input-tip" preValue="时" title="1-24小时内数字" />
+                        <span class="input-mark mid">:</span>
+                        <div class="input-group" js="downlist">
+                            <input type="text" name="title" class="min input-tip" preValue="分" title="0-59分钟内数字" />
+                            <span class="grip"></span>
+                            <ul class="downlist">
+                                <li><a href="javascript:void(0);" value="00">正点</a></li>
+                                <li><a href="javascript:void(0);" value="15">15分</a></li>
+                                <li><a href="javascript:void(0);" value="30">30分</a></li>
+                                <li><a href="javascript:void(0);" value="45">45分</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                
+                <div class="feature_area">
+                    <label class="mx-label">Textarea</label>
+                    <div class="mx-text">
+                        <textarea class="large noresize" rows="8"></textarea>
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                
+                <h2 class="ex-title">其他表单功能 <em>(example 2.4)</em></h2>
+                <div class="ex-note">
+                    <ul class="ex-list">
+                        <li>input元素标示符内容如下，加入class<strong>input-mark</strong>，如果需要设置为input前缀，后缀或者居中，可以分别再加入class<strong>prepend</strong>，<strong>append</strong>或者<strong>mid</strong>。</li>
+                    </ul>
+                </div>
+                <div class="feature_area">
+                    <label class="mx-label">默认</label>
+                    <div class="mx-text">
+                        <span class="input-mark tiptip" title="唯一标示用户，尽量简短">@</span>
+                        <input type="text" name="title" class="small" />
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                <div class="feature_area">
+                    <label class="mx-label">前缀</label>
+                    <div class="mx-text">
+                        <span class="input-mark prepend tiptip" title="唯一标示用户，尽量简短">@</span>
+                        <input type="text" name="title" class="small" />
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                <div class="feature_area">
+                    <label class="mx-label">后缀</label>
+                    <div class="mx-text">
+                        <input type="text" name="title" class="small" />
+                        <span class="input-mark append tiptip" title="唯一标示用户，尽量简短">@meside.com</span>
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                <div class="feature_area">
+                    <label class="mx-label">中间</label>
+                    <div class="mx-text">
+                        <input type="text" name="title" class="small" preValue="example" />
+                        <span class="input-mark mid">@</span>
+                        <input type="text" name="title" class="short" preValue="meside.com" />
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                
+                <div class="feature_area">
+                    <label class="mx-label">图标</label>
+                    <div class="mx-text">
+                        <input type="text" name="title" class="short" preValue="WI-FI" />
+                        <span class="input-mark append"><i class="icon-signal"></i></span>
+                    </div>
+                    <div class="cr"></div>
+                </div>
+                
+                <h2 class="ex-title">表单尺寸 <em>(example 2.5)</em></h2>
+                
+                <table class="bordered-table zebra-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>类</th>
+                            <th>范例</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>.min</td>
+                            <td><input type="text" class="min" /></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>.tiny</td>
+                            <td><input type="text" class="tiny" /></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>.short</td>
+                            <td><input type="text" class="short" /></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>.small</td>
+                            <td><input type="text" class="small" /></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>.medium (未设置宽度时默认尺寸)</td>
+                            <td><input type="text" class="medium" /></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>.big</td>
+                            <td><input type="text" class="big" /></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>.large</td>
+                            <td><input type="text" class="large" /></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>.huge</td>
+                            <td><input type="text" class="huge" /></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>.max</td>
+                            <td><input type="text" class="max" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="ex-note">
+                    <ul class="ex-list">
+                        <li><strong>input[type=text]</strong>和<strong>input[type=password]</strong>元素按照上述class尺寸设置input的宽度。</li>
+                        <li><strong>textarea</strong>元素的宽度class不支持<strong>min</strong>, <strong>tiny</strong>和<strong>short</strong>这三个尺寸。</li>
+                    </ul>
+                </div>
+            </form>
+        </section>
+        
+        <section>
+            <h1 class="ex-title" id="button">Button，按钮</h1>
+            <h2 class="ex-title">通用按钮 <em>(example 3.1)</em></h2>
+            <div class="ex-note">
+                <ul class="ex-list">
+                    <li>Button元素，可以在<strong>&lt;a href="#"&gt;</strong>, <strong>&lt;span&gt;</strong>, <strong>&lt;button&gt;</strong>, <strong>&lt;input type="submit" /&gt;</strong>中使用，加入class<strong>btn</strong>，并由<strong>blue</strong>, <strong>gray</strong>, <strong>red</strong>, <strong>orange</strong>, <strong>green</strong>, <strong>black</strong>类来调节颜色。</li>
+                </ul>
+            </div>
+            <div class="ex-block">
+                <a href="#" class="btn blue">确定</a>
+                <a href="#" class="btn gray">取消</a>
+                <a href="#" class="btn red">危险</a>
+                <a href="#" class="btn orange">警告</a>
+                <a href="#" class="btn green">帮助</a>
+                <a href="#" class="btn black">反转</a>
+            </div>
+            
+            <h2 class="ex-title">通用尺寸 <em>(example 3.2)</em></h2>
+            <div class="ex-note">
+                <ul class="ex-list">
+                    <li>可以在<strong>btn</strong>添加平级类<strong>small</strong>来选择按钮尺寸。</li>
+                </ul>
+            </div>
+            <div class="ex-block">
+                <a href="#" class="btn blue small">确定</a>
+                <a href="#" class="btn gray small">取消</a>
+                <a href="#" class="btn red small">危险</a>
+            </div>
+            <h2 class="ex-title">通用组合 <em>(example 3.3)</em></h2>
+            <div class="ex-note">
+                <ul class="ex-list">
+                    <li>在按钮元素外裹<strong>&lt;div class="btn-group"&gt;..&lt;/div&gt;</strong>来得到按钮组效果，按钮组内按钮同样支持small类。</li>
+                </ul>
+            </div>
+            <div class="ex-block">
+                <div class="btn-group">
+                    <a href="#" class="btn gray">确定</a>
+                    <a href="#" class="btn gray">字体</a>
+                    <a href="#" class="btn gray">颜色</a>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn blue"><span class="icon-cog icon-white"></span> 管理</a>
+                    <a href="#" class="btn blue btn-dropdown"><span class="caret"></span></a>
+                    <ul class="btn-dropdown-content">
+                        <li><a href="#">编辑</a></li>
+                        <li><a href="#">删除</a></li>
+                        <li><a href="#">禁止</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn red btn-dropdown">删除 <span class="caret"></span></a>
+                    <ul class="btn-dropdown-content">
+                        <li><a href="#">编辑</a></li>
+                        <li><a href="#">删除</a></li>
+                        <li><a href="#">禁止</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h1 class="ex-title" id="table">Table，表格</h1>
+            <div class="ex-note">
+                <ul class="ex-list">
+                    <li><strong>table</strong>已经添加了默认属性，直接使用。</li>
+                    <li>如果需要表格边框可以加入类<strong>bordered-table</strong>，如果需要斑马线样式显示则加入<strong>zebra-striped</strong>，可同时使用。</li>
+                    <li>本表格的样式来自于bootstrap，并深刻的感谢。</li>
+                </ul>
+            </div>
+            <div class="ex-block-left">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Language</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Some</td>
+                            <td>One</td>
+                            <td>English</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Joe</td>
+                            <td>Sixpack</td>
+                            <td>English</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Stu</td>
+                            <td>Dent</td>
+                            <td>Code</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ex-block-right">
+                <table class="bordered-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Language</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Some</td>
+                            <td>One</td>
+                            <td>English</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Joe</td>
+                            <td>Sixpack</td>
+                            <td>English</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Stu</td>
+                            <td>Dent</td>
+                            <td>Code</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cr"></div>
+            <div class="ex-block-left">
+                <table class="zebra-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Language</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Some</td>
+                            <td>One</td>
+                            <td>English</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Joe</td>
+                            <td>Sixpack</td>
+                            <td>English</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Stu</td>
+                            <td>Dent</td>
+                            <td>Code</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ex-block-right">
+                <table class="bordered-table zebra-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Language</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Some</td>
+                            <td>One</td>
+                            <td>English</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Joe</td>
+                            <td>Sixpack</td>
+                            <td>English</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Stu</td>
+                            <td>Dent</td>
+                            <td>Code</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cr"></div>
+        </section>
+        
+        <section>
+            <h1  class="ex-title" id="navigation">Navigation，导航</h1>
+            <div class="ex-note">
+                <ul class="ex-list">
+                    <li>你可以选择<strong>tabs</strong>和<strong>pills</strong>类来使用</li>
+                    <li>在<strong>tabs</strong>类中，你可以再加入<strong>gray</strong>类来显示灰色底。</li>
+                    <li>如果要使用页码导航，再使用<strong>pagination</strong>类。</li>
+                </ul>
+            </div>
+            <h2 class="ex-title">Tabs导航 <em>(example 5.1)</em></h2>
+            <ul class="tabs">
+                <li class="current"><a href="#">首页</a></li>
+                <li><a href="#">活动墙</a></li>
+                <li><a href="#">通知</a></li>
+                <li><a href="#">设置</a></li>
+            </ul>
+            <ul class="tabs gray">
+                <li class="current"><a href="#">首页</a></li>
+                <li><a href="#">活动墙</a></li>
+                <li><a href="#">通知</a></li>
+                <li><a href="#">设置</a></li>
+            </ul>
+            <h2 class="ex-title">Pills导航 <em>(example 5.2)</em></h2>
+            <ul class="pills">
+                <li class="current"><a href="#">首页</a></li>
+                <li><a href="#">活动墙</a></li>
+                <li><a href="#">通知</a></li>
+                <li><a href="#">设置</a></li>
+            </ul>
+            <h2 class="ex-title">页码导航 <em>(example 5.3)</em></h2>
+            <div class="pagination">
+                <a href="#">上一页</a>
+                <a href="#" class="current">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">下一页</a>
+            </div>
+            <h2 class="ex-title">定义页码导航 <em>(example 5.4)</em></h2>
+            <div class="pager">
+                <a class="pager_link" href="#">首页</a>
+                <a class="pager_link" href="#">&lt;前页</a>
+                <a class="pager_link" href="#">1</a>
+                <a class="pager_link" href="#">2</a>
+                <span class="pager_curpage">3</span>
+                <a class="pager_link" href="#">4</a>
+                <a class="pager_link" href="#">5</a>
+                <span class="pager_dotdot">..</span>
+                <a class="pager_link" href="#">39</a>
+                <a class="pager_link" href="#">后页&gt;</a>
+                <a class="pager_link" href="#">尾页</a>
+            </div>
+        </section>
+        
+        <section>
+            <h1 class="ex-title" id="alert">Alert，警告</h1>
+            <h2 class="ex-title">警告框 <em>(example 6.1)</em></h2>
+            <div class="ex-block">
+                <div class="alert">
+                    <a class="close">×</a>
+                    <strong>警告！</strong>建议使用真实姓名和头像，以找到更多朋友并相识。
+                </div>
+                <div class="alert alert-info">
+                    <a class="close">×</a>
+                    <strong>警告！</strong>建议使用真实姓名和头像，以找到更多朋友并相识。
+                </div>
+                <div class="alert alert-success">
+                    <a class="close">×</a>
+                    <strong>警告！</strong>建议使用真实姓名和头像，以找到更多朋友并相识。
+                </div>
+                <div class="alert alert-danger">
+                    <a class="close">×</a>
+                    <strong>警告！</strong>建议使用真实姓名和头像，以找到更多朋友并相识。
+                </div>
+            </div>
+            <h2 class="ex-title">着重文字 <em>(example 6.2)</em></h2>
+            <table class="bordered-table zebra-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>类</th>
+                        <th>范例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>label</td>
+                        <td><span class="label">提示</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>label success</td>
+                        <td><span class="label success">成功</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>label warning</td>
+                        <td><span class="label warning">警告</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>label important</td>
+                        <td><span class="label important">重要</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>label notice</td>
+                        <td><span class="label notice">通知</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </section>
+        
+        <section>
+            <h1 class="ex-title" id="tip">Tip，提示</h1>
+            <h2 class="ex-title">文字提示 <em>(example 7.1)</em></h2>
+            <div class="ex-note">
+                <span class="tiptip" title="这里使用了tipTip">鼠标经过这里</span>
+            </div>
+            <h2 class="ex-title">确认框提示 <em>(example 7.2)</em></h2>
+            <div class="ex-note">
+            	<a href="#" class="btn blue tiptip" js="confirm" title="点击这里演示">启动确认框演示</a>
+            </div>
+        </section>
+        
+        <section>
+            <h1 class="ex-title" id="photo">photo，相片</h1>
+            <div class="ex-note">
+                <ul class="ex-list">
+                    <li><strong>ul</strong>处添加<strong>media-grid</strong>类。</li>
+                    <li>缩略图尺寸: <strong>480px * 320px</strong></li>
+                    <li>grid1: <strong>475px * 315px</strong></li>
+                    <li>grid2: <strong>235px * 155px</strong></li>
+                    <li>grid3: <strong>155px * 100px</strong></li>
+                    <li>grid4: <strong>115px * 75px</strong></li>
+                </ul>
+            </div>
+                  
+            <div class="ex-block">
+                <ul class="media-grid grid1">
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                </ul>
+                <div class="cr"></div>
+                <ul class="media-grid grid2">
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                </ul>
+                <div class="cr"></div>
+                <ul class="media-grid grid3">
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                </ul>
+                <div class="cr"></div>
+                <ul class="media-grid grid4">
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                    <li><a href="#"><img src="images/example.gif" /></a></li>
+                </ul>
+                <div class="cr"></div>
+            </div>    
+        </section>
+        <section>
+            <h1 class="ex-title" id="icon">Icon，图标</h1>
+            <div class="ex-note">
+                <ul class="ex-list">
+                    <li>Thank you for bootstrap 和 Glyphicons</li>
+                    <li>添加<strong>icon-</strong>，如果使用白色图标，则再添加<strong>icon-white</strong>。</li>
+                </ul>
+            </div>
+            <div class="ex-block ex-icon">
+                <div class="ex-block-four">
+                    <ul class="the-icons">
+                        <li><i class="icon-glass"></i> icon-glass</li>
+                        <li><i class="icon-music"></i> icon-music</li>
+                        <li><i class="icon-search"></i> icon-search</li>
+                        <li><i class="icon-envelope"></i> icon-envelope</li>
+                        <li><i class="icon-heart"></i> icon-heart</li>
+                        <li><i class="icon-star"></i> icon-star</li>
+                        <li><i class="icon-star-empty"></i> icon-star-empty</li>
+                        <li><i class="icon-user"></i> icon-user</li>
+                        <li><i class="icon-film"></i> icon-film</li>
+                        <li><i class="icon-th-large"></i> icon-th-large</li>
+                        <li><i class="icon-th"></i> icon-th</li>
+                        <li><i class="icon-th-list"></i> icon-th-list</li>
+                        <li><i class="icon-ok"></i> icon-ok</li>
+                        <li><i class="icon-remove"></i> icon-remove</li>
+                        <li><i class="icon-zoom-in"></i> icon-zoom-in</li>
+                        <li><i class="icon-zoom-out"></i> icon-zoom-out</li>
+                        <li><i class="icon-off"></i> icon-off</li>
+                        <li><i class="icon-signal"></i> icon-signal</li>
+                        <li><i class="icon-cog"></i> icon-cog</li>
+                        <li><i class="icon-trash"></i> icon-trash</li>
+                        <li><i class="icon-home"></i> icon-home</li>
+                        <li><i class="icon-file"></i> icon-file</li>
+                        <li><i class="icon-time"></i> icon-time</li>
+                        <li><i class="icon-road"></i> icon-road</li>
+                        <li><i class="icon-download-alt"></i> icon-download-alt</li>
+                        <li><i class="icon-download"></i> icon-download</li>
+                        <li><i class="icon-upload"></i> icon-upload</li>
+                        <li><i class="icon-inbox"></i> icon-inbox</li>
+                        <li><i class="icon-play-circle"></i> icon-play-circle</li>
+                        <li><i class="icon-repeat"></i> icon-repeat</li>
+                    </ul>
+                </div>
+                <div class="ex-block-four">
+                    <ul class="the-icons">
+                        <li><i class="icon-refresh"></i> icon-refresh</li>
+                        <li><i class="icon-list-alt"></i> icon-list-alt</li>
+                        <li><i class="icon-lock"></i> icon-lock</li>
+                        <li><i class="icon-flag"></i> icon-flag</li>
+                        <li><i class="icon-headphones"></i> icon-headphones</li>
+                        <li><i class="icon-volume-off"></i> icon-volume-off</li>
+                        <li><i class="icon-volume-down"></i> icon-volume-down</li>
+                        <li><i class="icon-volume-up"></i> icon-volume-up</li>
+                        <li><i class="icon-qrcode"></i> icon-qrcode</li>
+                        <li><i class="icon-barcode"></i> icon-barcode</li>
+                        <li><i class="icon-tag"></i> icon-tag</li>
+                        <li><i class="icon-tags"></i> icon-tags</li>
+                        <li><i class="icon-book"></i> icon-book</li>
+                        <li><i class="icon-bookmark"></i> icon-bookmark</li>
+                        <li><i class="icon-print"></i> icon-print</li>
+                        <li><i class="icon-camera"></i> icon-camera</li>
+                        <li><i class="icon-font"></i> icon-font</li>
+                        <li><i class="icon-bold"></i> icon-bold</li>
+                        <li><i class="icon-italic"></i> icon-italic</li>
+                        <li><i class="icon-text-height"></i> icon-text-height</li>
+                        <li><i class="icon-text-width"></i> icon-text-width</li>
+                        <li><i class="icon-align-left"></i> icon-align-left</li>
+                        <li><i class="icon-align-center"></i> icon-align-center</li>
+                        <li><i class="icon-align-right"></i> icon-align-right</li>
+                        <li><i class="icon-align-justify"></i> icon-align-justify</li>
+                        <li><i class="icon-list"></i> icon-list</li>
+                        <li><i class="icon-indent-left"></i> icon-indent-left</li>
+                        <li><i class="icon-indent-right"></i> icon-indent-right</li>
+                        <li><i class="icon-facetime-video"></i> icon-facetime-video</li>
+                        <li><i class="icon-picture"></i> icon-picture</li>
+                    </ul>
+                </div>
+                <div class="ex-block-four">
+                    <ul class="the-icons">
+                        <li><i class="icon-pencil"></i> icon-pencil</li>
+                        <li><i class="icon-map-marker"></i> icon-map-marker</li>
+                        <li><i class="icon-adjust"></i> icon-adjust</li>
+                        <li><i class="icon-tint"></i> icon-tint</li>
+                        <li><i class="icon-edit"></i> icon-edit</li>
+                        <li><i class="icon-share"></i> icon-share</li>
+                        <li><i class="icon-check"></i> icon-check</li>
+                        <li><i class="icon-move"></i> icon-move</li>
+                        <li><i class="icon-step-backward"></i> icon-step-backward</li>
+                        <li><i class="icon-fast-backward"></i> icon-fast-backward</li>
+                        <li><i class="icon-backward"></i> icon-backward</li>
+                        <li><i class="icon-play"></i> icon-play</li>
+                        <li><i class="icon-pause"></i> icon-pause</li>
+                        <li><i class="icon-stop"></i> icon-stop</li>
+                        <li><i class="icon-forward"></i> icon-forward</li>
+                        <li><i class="icon-fast-forward"></i> icon-fast-forward</li>
+                        <li><i class="icon-step-forward"></i> icon-step-forward</li>
+                        <li><i class="icon-eject"></i> icon-eject</li>
+                        <li><i class="icon-chevron-left"></i> icon-chevron-left</li>
+                        <li><i class="icon-chevron-right"></i> icon-chevron-right</li>
+                        <li><i class="icon-plus-sign"></i> icon-plus-sign</li>
+                        <li><i class="icon-minus-sign"></i> icon-minus-sign</li>
+                        <li><i class="icon-remove-sign"></i> icon-remove-sign</li>
+                        <li><i class="icon-ok-sign"></i> icon-ok-sign</li>
+                        <li><i class="icon-question-sign"></i> icon-question-sign</li>
+                        <li><i class="icon-info-sign"></i> icon-info-sign</li>
+                        <li><i class="icon-screenshot"></i> icon-screenshot</li>
+                        <li><i class="icon-remove-circle"></i> icon-remove-circle</li>
+                        <li><i class="icon-ok-circle"></i> icon-ok-circle</li>
+                        <li><i class="icon-ban-circle"></i> icon-ban-circle</li>
+                    </ul>
+                </div>
+                <div class="ex-block-four">
+                    <ul class="the-icons">
+                        <li><i class="icon-arrow-left"></i> icon-arrow-left</li>
+                        <li><i class="icon-arrow-right"></i> icon-arrow-right</li>
+                        <li><i class="icon-arrow-up"></i> icon-arrow-up</li>
+                        <li><i class="icon-arrow-down"></i> icon-arrow-down</li>
+                        <li><i class="icon-share-alt"></i> icon-share-alt</li>
+                        <li><i class="icon-resize-full"></i> icon-resize-full</li>
+                        <li><i class="icon-resize-small"></i> icon-resize-small</li>
+                        <li><i class="icon-plus"></i> icon-plus</li>
+                        <li><i class="icon-minus"></i> icon-minus</li>
+                        <li><i class="icon-asterisk"></i> icon-asterisk</li>
+                        <li><i class="icon-exclamation-sign"></i> icon-exclamation-sign</li>
+                        <li><i class="icon-gift"></i> icon-gift</li>
+                        <li><i class="icon-leaf"></i> icon-leaf</li>
+                        <li><i class="icon-fire"></i> icon-fire</li>
+                        <li><i class="icon-eye-open"></i> icon-eye-open</li>
+                        <li><i class="icon-eye-close"></i> icon-eye-close</li>
+                        <li><i class="icon-warning-sign"></i> icon-warning-sign</li>
+                        <li><i class="icon-plane"></i> icon-plane</li>
+                        <li><i class="icon-calendar"></i> icon-calendar</li>
+                        <li><i class="icon-random"></i> icon-random</li>
+                        <li><i class="icon-comment"></i> icon-comment</li>
+                        <li><i class="icon-magnet"></i> icon-magnet</li>
+                        <li><i class="icon-chevron-up"></i> icon-chevron-up</li>
+                        <li><i class="icon-chevron-down"></i> icon-chevron-down</li>
+                        <li><i class="icon-retweet"></i> icon-retweet</li>
+                        <li><i class="icon-shopping-cart"></i> icon-shopping-cart</li>
+                        <li><i class="icon-folder-close"></i> icon-folder-close</li>
+                        <li><i class="icon-folder-open"></i> icon-folder-open</li>
+                        <li><i class="icon-resize-vertical"></i> icon-resize-vertical</li>
+                        <li><i class="icon-resize-horizontal"></i>icon-resize-horizontal</li>
+                    </ul>
+                </div>
+                <div class="cr"></div>
+            </div>
+        </section>
+        <section>
+        	<h1 class="ex-title" id="log">Log，开发日志及计划</h1>
+            <h2 class="ex-title">开发计划</h2>
+            <div class="ex-note">
+                <ul class="ex-list">
+                    <li>设计再次确定对话框。<strong>完成</strong></li>
+                    <li>添加日期选择框。<strong>完成</strong></li>
+                    <li>设计带评论的图片展示框。</li>
+                    <li>MeSide用户头像预览组。</li>
+                    <li>设计更多关于Button的效果，如选中状态样式，单击显示loading，btn-group内checkbox。</li>
+                    <li>设计针对于MeSide的自动完成框。</li>
+                    <li>设计针对于MeSide的添加关注和加为好友按钮的javascript。</li>
+                </ul>
+            </div>
+            <h2 class="ex-title">开发日志</h2>
+            <div class="ex-note">
+            	<h3 class="ex-title">MeBasic V2.1.0 20120224</h3>
+                <ul class="ex-list">
+                	<li>增加了Python制定下的Pager设计，和新增一种media-grid-max尺寸。</li>
+                </ul>
+            	<h3 class="ex-title">MeBasic V2.0.2 20120221</h3>
+                <ul class="ex-list">
+                	<li>添加了日期选择框，增加CSS和JS文件。详见<strong>example 2.3</strong>。</li>
+                </ul>
+            	<h3 class="ex-title">MeBasic V2.0.1 20120221</h3>
+                <ul class="ex-list">
+                	<li>添加了确认对话框提示功能。详见<strong>example 7.2</strong>。</li>
+                </ul>
+                <h3 class="ex-title">MeBasic V2.0.0 20120220</h3>
+                <ul class="ex-list">
+                    <li>删除在input[type=text], input[type=password]内必须使用类<strong>.t</strong>，直接在类<strong>input_form</strong>内使用input即可，同样<strong>textarea</strong>和<strong>select</strong>也删除了<strong>.txta</strong>和<strong>.select</strong>类。</li>
+                    <li>添加了input前缀、后缀、居中等标记，即<strong>.input_mark</strong>。</li>
+                    <li>设计了新制定的select样式和带有选择下拉菜单的input。</li>
+                </ul>
+                <h3 class="ex-title">MeBasic V1.5.1 20120212</h3>
+                <ul class="ex-list">
+                	<li>修改btn.gray的配色方案</li>
+                </ul>
+                <h3 class="ex-title">MeBasic V1.5.0 20120211</h3>
+                <ul class="ex-list">
+                    <li>添加了更多btn元素，包括btn-group，btw-dropdown等</li>
+                    <li>添加了Alert元素</li>
+                    <li>添加了Icon元素</li>
+                    <li>删除原button-down元素</li>
+                    <li>添加orange色彩button按钮</li>
+                    <li>分离出jQuery代码，创建basic.js文件</li>
+                </ul>
+                <h3 class="ex-title">MeBasic V1.2.1 20120211</h3>
+                <ul class="ex-list">
+                	<li>添加table标签下a标签内容的显示颜色</li>
+                </ul>
+                <h3 class="ex-title">MeBasic V1.2.0 20120209</h3>
+                <ul class="ex-list">
+                	<li>加入table Style，参考twitter bootstrap</li>
+                </ul>
+            </div>
+            <h2 class="ex-title">关于</h2>
+            <div class="ex-note">
+            	<ul class="ex-list">
+                    <li>MeBasic参考了大量bootstrap的源代码和设计理念，并由衷地感谢twitter, bootstrap。</li>
+                    <li>MeBasic是MeSide的UI设计标准，MeSide的前端设计将完全基于并遵守MeBasic的使用方式。</li>
+                    <li>MeBasic的设计理念是包装常用组件，平衡设计开发效率与用户体验，并为MeSide制定所需设计元素。</li>
+                    <li>愿意参与MeBasic的设计与开发者，请联系我们<strong>mino.wu@methink.cn</strong>。</li>
+                </ul>
+            </div>
+        </section>
+    </div><!--/mainarea-->
+    <div class="ex-sidebar">
+        <ul class="ex-nav">
+            <li><a href="#text">Text，文字</a></li>
+            <li><a href="#form">Form，表单</a></li>
+            <li><a href="#button">Button，按钮</a></li>
+            <li><a href="#table">Table，表格</a></li>
+            <li><a href="#navigation">Navigation，导航</a></li>
+            <li><a href="#alert">Alert，警告</a></li>
+            <li><a href="#tip">Tip，提示</a></li>
+            <li><a href="#photo">Photo，相片</a></li>
+            <li><a href="#icon">Icon，图标</a></li>
+            <li><a href="#log">Log，开发日志及计划</a></li>
+        </ul>
+    </div>
+    <div class="cr"></div>
+</div><!--/wrapper-->
+
+<div class="ex-footer"><div class="ex-inner">2012@meside.com</div></div>
+
+</body>
+</html>
