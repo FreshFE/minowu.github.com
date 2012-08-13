@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+			padding: 0;
+			margin: 0;
+		}
+		.wrapper {
+			width: 200px;
+			height: 200px;
+			overflow: hidden;
+			border-radius: 100px;
+			position: absolute;
+			box-shadow: 0 0 20px rgba(0,0,0,.4);
+			-webkit-transition: -webkit-transform 50s;
+			margin: -150px 0 0 -100px;
+			top: 50%;
+			left: 50%;
+		}
+
+		.wrapper > div {
+			position: absolute;
+		}
+
+		.wrapper:hover {
+			-webkit-transform: rotate(36000deg) scale(5);
+		}
+		
+		.white {
+			background: #fff;
+		}
+		.black {
+			background: #000;
+		}
+
+		.bg {
+			width: 100px;
+			height: 200px;
+			top: 0;
+		}
+
+		.big {
+			width: 100px;
+			height: 100px;
+			top: 0;
+			left: 50px;
+			border-radius: 50px;
+		}
+
+		.small {
+			width: 25px;
+			height: 25px;
+			top: 37.5px;
+			left: 87.5px;
+			border-radius: 20px;
+		}
+
+		.bg.white {
+			border-radius: 100px 0 0 100px;
+			left: 0;
+		}
+
+		.bg.black {
+			border-radius: 0 100px 100px 0;
+			right: 0;
+		}
+
+		.big.white {
+			top: 0;
+		}
+
+		.big.black {
+			top: 100px;
+		}
+
+		.small.white {
+			top: auto;
+			bottom: 37.5px;
+		}
+
+		.small.black {
+		}
+	</style>
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="white bg"></div>
+	<div class="black bg"></div>
+	<div class="white big"></div>
+	<div class="black big"></div>
+	<div class="white small"></div>
+	<div class="black small"></div>
+</div>
+
+</body>
+</html>
