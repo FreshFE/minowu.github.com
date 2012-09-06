@@ -1,0 +1,51 @@
+.downlist-group {
+	position: relative;
+	> .downlist {
+		display: none;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		position: absolute;
+		z-index: 400;
+		background: #fff;
+		z-index: 8881;
+		@include border-radius-bottom(1px);
+		@include box-shadow(1px 1px 5px rgba(0,0,0,.2));
+		border: 1px solid #eee;
+		border-color: rgba(0,0,0,.2);
+		// border-top: none;
+		> li {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			> a {
+				display: block;
+				padding: 10px 20px;
+				// padding-left: 34px;
+				text-decoration: none;
+				> i {
+					// margin-left: -22px;
+					margin-right: 3px;
+				}
+				&:hover {
+					background: #08c;
+					color: #fff;
+					> i.white {
+						background-image: $icon_white;
+					}
+				}
+			}
+			&.divider {
+				height: 1px;
+				margin: 10px 1px;
+				overflow: hidden;
+				background-color: #E5E5E5;
+			}
+		}
+	}
+	&.open {
+		> .downlist {
+			display: block;
+		}
+	}
+}

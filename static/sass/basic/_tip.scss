@@ -1,0 +1,22 @@
+.system-tip {
+	display: none;
+	position: fixed;
+	top: 50px;
+	left: 50%;
+	color: #fff;
+	width: 100px;
+	margin-left: -50px;
+	text-align: center;
+	padding: 20px;
+	background: #666;
+	background: rgba(102,102,102,.9);
+	@include border-radius(3px);
+	&.success {
+		background: #468847;
+		background: rgba(70,136,71,.9);
+	}
+	&.error {
+		background: #b94a48;
+		background: rgba(185,74,72,.9);
+	}
+}

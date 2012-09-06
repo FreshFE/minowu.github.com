@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>MinoWu</title>
+    <link href="http://minowu.com/feed.xml" rel="self" />
+    <link href="http://minowu.com/" />
+    <updated>2012-09-06T15:07:48+00:00</updated>
+    <id>http://minowu.com/</id>
+    <entry>
+        <title type="html"><![CDATA[Welcome 欢迎稿]]></title>
+        <author><name>MinoWu</name><uri>http://minowu.com</uri></author>
+        <link href="http://minowu.com/2012/welcome.html"/>
+        <published>2012-09-06T00:00:00+00:00</published>
+        <updated>2012-09-06T15:07:48+00:00</updated>
+        <id>http://minowu.com/2012/welcome.html</id>
+        <category scheme="http://minowu.com/tag/other/" term="other" label="other" />
+        <content type="html" xml:base="http://minowu.com" xml:lang="en">
+            <![CDATA[ <h3>Welcome to my page.</h3>
+<p>我的主页正在设计中，估计在9月中旬上线。下面是我的电子邮件，<a href="mailto:minowu@foxmail.com">minowu@foxmail.com</a></p>
+<p>和一些简单的作品链接</p>
+
+<ul>
+<li><a href="http://www.atjiehun.com">AT结婚网</a></li>
+<li><a href="http://minowu.com/works/mebasic">MeBasic, 一个简单的UI框架</a></li>
+<li><a href="http://minowu.com/works/turnjs">杂志翻页效果</a></li>
+<li><a href="http://minowu.com/works/evipath/1.png">Evipath，一个医疗项目的表单创建页面</a></li>
+</ul>
+]]>
+        </content>
+    </entry>
+</feed>

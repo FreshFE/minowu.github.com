@@ -1,0 +1,62 @@
+/** Core 核心 */
+body,
+input,
+textarea,
+select,
+pre,
+button {
+    font-family: $macFont;
+    .ua-Mac & {
+        font-family: $macFont;
+    }
+    .ua-Windows & {
+        font-family: $winFont;
+    }
+}
+
+body {
+    color: #000;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+ul.nav,
+ul.nav > li {
+    list-style: none;
+    list-style-image: none;
+    padding: 0;
+    margin: 0;
+}
+
+input,
+textarea,
+select,
+button {
+    color: #666;
+    outline: none;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+$linkColor: #333;
+
+a {
+    color: $linkColor;
+    text-decoration: none;
+
+    &:link {}
+    &:visited {}
+    &:hover {
+        color: darken($linkColor, 10%);
+        text-decoration: underline;
+    }
+    &:active{}
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+.pull-right {
+    float: right;
+}

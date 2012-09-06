@@ -1,0 +1,207 @@
+.form-horizontal,
+.form-inline {
+
+    $form-radius: 2px;
+
+    fieldset {
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+
+    legend {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 25px;
+        color: #666;
+        border: 0;
+        border-bottom: 1px solid #e5e5e5;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        padding-bottom: 10px;
+        margin-bottom: 40px;
+        font-size: 20px;
+        line-height: 25px;
+        color: #888;
+        border-bottom: 3px double #e5e5e5;
+    }
+
+    select,
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"] {
+        display: inline-block;
+        width: 300px;
+        height: 30px;
+        padding: 4px 10px;
+        margin-bottom: 9px;
+        font-size: 12px;
+        line-height: 18px;
+        color: #666;
+        border: none;
+        border: 1px solid #ccc;
+        @include border-radius($form-radius);
+
+        @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+        @include transition(#{border linear .2s, box-shadow linear .2s});
+
+        &:focus {
+            border-color: rgba(82,168,236,.6);
+            outline: 0;
+            outline: thin dotted \9; /* IE6-9 */
+            @include box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)});
+            // @include box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgba(196,97,130,.6)});
+        }
+
+        // General classes for quick sizes
+        &.input-mini       { width: 60px; }
+        &.input-small      { width: 90px; }
+        &.input-medium     { width: 150px; }
+        &.input-large      { width: 210px; }
+        &.input-xlarge     { width: 270px; }
+        &.input-xxlarge    { width: 530px; }
+        &.input-standard   { width: 470px; }
+    }
+
+    textarea {
+        resize: none;
+        height: auto;
+    }
+
+    // Position radios and checkboxes better
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin: 3px 0;
+        *margin-top: 0; /* IE7 */
+        line-height: normal;
+        cursor: pointer;
+    }
+
+    // Reset width of input buttons, radios, checkboxes
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    input[type="radio"],
+    input[type="checkbox"] {
+        width: auto; // Override of generic input selector
+    }
+
+    select,
+    input[type="file"] {
+        height: 28px; /* In IE7, the height of the select element cannot be changed by height, only font-size */
+        *margin-top: 4px; /* For IE7, add top margin to align select with labels */
+        line-height: 28px;
+    }
+
+    select {
+        border: 1px solid #bbb;
+    }
+
+    .control-divide {
+        // background: #eee;
+        border-top: 1px dashed #eee;
+        height: 0;
+        margin: 20px 0;
+    }
+
+    .form-action {
+        // border-top: 1px solid #ddd;
+        padding-top: 20px;
+    }
+
+}
+
+.form-horizontal {
+    .control-group {
+        @include clearfix();
+        label.control-label {
+            display: block;
+            text-align: right;
+            float: left;
+            width: 80px;
+            line-height: 32px;
+            font-weight: bold;
+            color: #666;
+            // font-size: 14px;
+        }
+        .controls,
+        .controls-block {
+            margin-left: 120px;
+            label.radio,
+            label.checkbox {
+                // padding: 10px 0;
+                input {
+                    margin-right: 10px;
+                }
+            }
+            label.error {
+                display: inline-block;
+                // width: 100%;
+                // margin-top: -9px;
+                margin-bottom: 9px;
+                > span {
+                    display: block;
+                    background: #CD0600;
+                    line-height: 23px;
+                    color: #fff;
+                    padding: 0 10px;
+                    @include border-radius(2px);
+                }
+            }
+            ul.error{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                > li {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+
+        .controls {
+            label.radio,
+            label.checkbox {
+                display: inline-block;
+                padding: 5px 0;
+                margin-right: 20px;
+            }
+        }
+
+        .controls-block {
+            > input {
+                display: block;
+            }
+            > label {
+                display: block;
+            }
+        }
+    }
+
+    .form-action {
+        padding-left: 120px;
+        margin-bottom: 20px;
+    }
+
+}

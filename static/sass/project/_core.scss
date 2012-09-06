@@ -1,0 +1,119 @@
+header {
+
+	background: #e5e5e5;
+	border-bottom: 1px solid #ddd;
+
+	.container {
+		position: relative;
+		width: 800px;
+		height: 40px;
+		margin: 0 auto;
+		@include clearfix();
+		> .brand {
+			position: absolute;
+			top: 2px;
+			left: 0;
+			> a {
+				display: block;
+				width: 100px;
+				text-align: center;
+				color: #fff;
+				text-decoration: none;
+				font-size: 18px;
+				background: #bf3724;
+				height: 40px;
+				line-height: 40px;
+			}
+			> .zh {
+				display: block;
+			}
+			> .en {
+				display: none;
+			}
+			&:hover {
+				> .zh {
+					display: none;
+				}
+				> .en {
+					display: block;
+				}
+			}
+		}
+		> .nav {
+			float: right;
+			margin-left: -2px;
+			margin-top: 2px;
+			> li {
+				float: left;
+				margin-left: 2px;
+				> a {
+					display: block;
+					height: 40px;
+					line-height: 40px;
+					padding: 0 15px;
+					text-decoration: none;
+				}
+				> a:hover,
+				&.active {
+					background: #d5d5d5;
+				}
+			}
+		}
+	}
+}
+
+
+.wrapper {
+	width: 800px;
+	margin: 40px auto;
+	.mainarea {
+		// border-left: 2px solid #bf3724;
+		min-height: 300px;
+	}
+}
+
+ul.nav.article-list {
+	font-size: 14px;
+	> li {
+		margin-bottom: 15px;
+
+		> span {
+			display: inline-block;
+			width: 80px;
+			margin-right: 20px;
+			color: #999;
+		}
+		> a {
+			border-bottom: 1px dashed #ddd;
+			text-decoration: none;
+			color: #333;
+			// -webkit-transition: 1s text-shadow;
+			
+			&:hover {
+				color: #bf3724;
+				@include transition(1s color);
+				// @include text-shadow(0 0 1px #bf3724);
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
