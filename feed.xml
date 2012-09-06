@@ -3,20 +3,85 @@
     <title>MinoWu</title>
     <link href="http://minowu.com/feed.xml" rel="self" />
     <link href="http://minowu.com/" />
-    <updated>2012-09-06T15:17:15+00:00</updated>
+    <updated>2012-09-06T21:05:49+00:00</updated>
     <id>http://minowu.com/</id>
     <entry>
         <title type="html"><![CDATA[研究Javascript中images如何判断加载完成]]></title>
         <author><name>MinoWu</name><uri>http://minowu.com</uri></author>
         <link href="http://minowu.com/2012/javascript-images-complete.html"/>
         <published>2012-09-06T00:00:00+00:00</published>
-        <updated>2012-09-06T15:17:15+00:00</updated>
+        <updated>2012-09-06T21:05:49+00:00</updated>
         <id>http://minowu.com/2012/javascript-images-complete.html</id>
         <category scheme="http://minowu.com/tag/javascript/" term="javascript" label="javascript" />
         <content type="html" xml:base="http://minowu.com" xml:lang="en">
-            <![CDATA[ <p>想要获得html中图片(img)的宽度和高度，必须要等到图片完成加载后，但是图片的加载总是会晚于DOM的生成。</p>
+            <![CDATA[ <h3>开篇</h3>
+<p>想要获得html中图片(img)的宽度和高度，必须要等到图片完成加载后，但是图片的加载总是会晚于DOM的生成。</p>
 <p>在jQuery下，开发者一般会在<strong>$(document).ready(function(){ &hellip; })</strong>中写入对于Javascript DOM操作的代码。但是如果在这个里面想要获得其图片的高度和宽度，得到的值大概是0吧。</p>
 <p>所以，我想要把图片何时加载完成研究透彻些，方便今后的项目开发。</p>
+<p><strong>目前简陋的解决方案（未多个游览器测试）</strong></p>
+
+<pre><code>// jQuery插件
+$.fn.suitImage = function(options){
+    return this.each(function(){
+
+        // self是DOM，$this是jQuery对象
+        var self = this,
+            $this = $(this),
+            suitImage;
+
+        // 判断self.complete的值
+        if(self.complete == true){
+            new SuitImage($this, options);
+        } else {
+            self.onload = function(){
+                new SuitImage($this, options);
+            }
+        }
+    });
+}</code></pre>
+
+<blockquote>
+<p>对于images标签的一篇参考文章</p>
+<p>(<a href="http://hi.baidu.com/mataofq/item/c50b97cc6b0e7a3845941673">hi.baidu.com/mataofq/item/c50b97cc6b0e7a3845941673</a>)</p>
+</blockquote>
+
+<h3>images的complete和onload属性</h3>
+<p>在IE游览器中，不管images是否存在缓存，<strong>image.complete</strong>的值在图片加载完成前为<strong>false</strong>，加载完成后显示为<strong>false</strong>。</p>
+<p>而在Chrome，Firefox等游览器中，如果images存在缓存，那么<strong>image.complete</strong>从一开始就显示为<strong>true</strong>，而不会执行onload。</p>
+
+<hr/>
+<p>所以最终我使用了上面的方法</p>
+
+<pre><code>if(self.complete == true){
+    func();
+} else {
+    self.onload = function(){
+        func();
+    }
+}</code></pre>
+
+<h3>如果把这段代码写成一个通用方法或者jQuery插件的话</h3>
+
+<pre><code>$('img').onComplete(function(){
+    // ...图片完全载入后需要执行的代码
+});</code></pre>
+<p>jQuery插件代码</p>
+
+<pre><code>$.fn.onComplete = function(callback){
+    return this.each(function(){
+        var self = this;
+        if(self.complete == true){
+            callback();
+        } else {
+            self.onload = function(){
+                callback();
+            }
+        }
+    });
+}</code></pre>
+
+<hr/>
+<p>研究待续，第一篇啊，不要拍砖。</p>
 ]]>
         </content>
     </entry><entry>
