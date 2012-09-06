@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>研究Javascript中images如何判断加载完成 | MinoWu</title>
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css?v=44b86">
+</head>
+<body>
+
+<header>
+	<div class="container">
+		<div class="brand">
+			<a href="/" class="zh">吴启成</a>
+			<a href="/" class="en">MinoWu</a>
+		</div>
+		<ul class="nav">
+			<li class="active"><a href="/">博客</a></li>
+			<!-- <li><a href="works">作品列表</a></li>
+			<li><a href="about">关于</a></li> -->
+		</ul>
+	</div>
+</header>
+
+<div class="wrapper">
+	<div class="mainarea">
+	
+	<div class="article">
+		<h1 class="title">研究Javascript中images如何判断加载完成</h1>
+
+		<div class="content">
+			<p>想要获得html中图片(img)的宽度和高度，必须要等到图片完成加载后，但是图片的加载总是会晚于DOM的生成。</p>
+<p>在jQuery下，开发者一般会在<strong>$(document).ready(function(){ &hellip; })</strong>中写入对于Javascript DOM操作的代码。但是如果在这个里面想要获得其图片的高度和宽度，得到的值大概是0吧。</p>
+<p>所以，我想要把图片何时加载完成研究透彻些，方便今后的项目开发。</p>
+
+		</div>
+	</div>
+
+</div>
+</div>
+
+<footer>
+</footer>
+
+</body>
+</html>
