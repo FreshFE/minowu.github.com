@@ -3,14 +3,14 @@
     <title>MinoWu</title>
     <link href="http://minowu.com/feed.xml" rel="self" />
     <link href="http://minowu.com/" />
-    <updated>2012-09-06T21:11:06+00:00</updated>
+    <updated>2012-09-06T22:08:22+00:00</updated>
     <id>http://minowu.com/</id>
     <entry>
         <title type="html"><![CDATA[研究Javascript中images如何判断加载完成]]></title>
         <author><name>MinoWu</name><uri>http://minowu.com</uri></author>
         <link href="http://minowu.com/2012/javascript-images-complete.html"/>
         <published>2012-09-06T00:00:00+00:00</published>
-        <updated>2012-09-06T21:11:06+00:00</updated>
+        <updated>2012-09-06T22:08:22+00:00</updated>
         <id>http://minowu.com/2012/javascript-images-complete.html</id>
         <category scheme="http://minowu.com/tag/javascript/" term="javascript" label="javascript" />
         <content type="html" xml:base="http://minowu.com" xml:lang="en">
