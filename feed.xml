@@ -3,14 +3,14 @@
     <title>MinoWu</title>
     <link href="http://minowu.com/feed.xml" rel="self" />
     <link href="http://minowu.com/" />
-    <updated>2012-09-06T21:05:49+00:00</updated>
+    <updated>2012-09-06T21:11:06+00:00</updated>
     <id>http://minowu.com/</id>
     <entry>
         <title type="html"><![CDATA[研究Javascript中images如何判断加载完成]]></title>
         <author><name>MinoWu</name><uri>http://minowu.com</uri></author>
         <link href="http://minowu.com/2012/javascript-images-complete.html"/>
         <published>2012-09-06T00:00:00+00:00</published>
-        <updated>2012-09-06T21:05:49+00:00</updated>
+        <updated>2012-09-06T21:11:06+00:00</updated>
         <id>http://minowu.com/2012/javascript-images-complete.html</id>
         <category scheme="http://minowu.com/tag/javascript/" term="javascript" label="javascript" />
         <content type="html" xml:base="http://minowu.com" xml:lang="en">
@@ -46,7 +46,7 @@ $.fn.suitImage = function(options){
 </blockquote>
 
 <h3>images的complete和onload属性</h3>
-<p>在IE游览器中，不管images是否存在缓存，<strong>image.complete</strong>的值在图片加载完成前为<strong>false</strong>，加载完成后显示为<strong>false</strong>。</p>
+<p>在IE游览器中，不管images是否存在缓存，<strong>image.complete</strong>的值在图片加载完成前为<strong>false</strong>，加载完成后显示为<strong>true</strong>。</p>
 <p>而在Chrome，Firefox等游览器中，如果images存在缓存，那么<strong>image.complete</strong>从一开始就显示为<strong>true</strong>，而不会执行onload。</p>
 
 <hr/>
@@ -79,8 +79,6 @@ $.fn.suitImage = function(options){
         }
     });
 }</code></pre>
-
-<hr/>
 <p>研究待续，第一篇啊，不要拍砖。</p>
 ]]>
         </content>
