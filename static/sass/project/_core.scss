@@ -1,7 +1,15 @@
-header {
+body {
+	margin-top: 80px;
+}
 
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 	background: #e5e5e5;
-	border-bottom: 1px solid #ddd;
+	// border-bottom: 1px solid #ddd;
+	// @include 
 
 	.container {
 		position: relative;
@@ -11,7 +19,7 @@ header {
 		@include clearfix();
 		> .brand {
 			position: absolute;
-			top: 2px;
+			top: 3px;
 			left: 0;
 			> a {
 				display: block;
@@ -74,7 +82,7 @@ header {
 
 .wrapper {
 	width: 800px;
-	margin: 40px auto;
+	margin: 0 auto;
 	.mainarea {
 		// border-left: 2px solid #bf3724;
 		min-height: 300px;
@@ -139,6 +147,10 @@ article {
 	}
 
 	.content {
+
+		border-bottom: 1px dashed #ddd;
+		padding-bottom: 40px;
+
 		h1 {
 		    margin-bottom: 18px;
 		    font-size: 30px;
@@ -245,11 +257,38 @@ article {
 		}
 	}
 
+	.tagsbox {
+		margin-bottom: 20px;
+		> .title {
+			font-size: 18px;
+			border-bottom: 3px double #ddd;
+			padding: 10px;
+			margin-bottom: 10px;
+		}
+		a {
+			font-size: 14px;
+			border-bottom: 1px dashed #ddd;
+			text-decoration: none;
+			&:before {
+				content: "#";
+				color: #333;
+			}
+		}
+	}
+
 }
 
 .commentsbox {
 	width: 560px;
 	margin: 0 auto;
+	margin-bottom: 20px;
+
+	> .comments-title {
+		border-bottom: 3px double #ddd;
+		padding: 10px 0;
+		margin-bottom: 10px;
+		font-size: 18px;
+	}
 }
 
 
