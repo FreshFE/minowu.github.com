@@ -2826,7 +2826,7 @@ article .tagsbox {
 article .tagsbox > .title {
   font-size: 18px;
   border-bottom: 3px double #ddd;
-  padding: 10px;
+  padding: 10px 0;
   margin-bottom: 10px;
 }
 /* line 268, ../sass/project/_core.scss */
