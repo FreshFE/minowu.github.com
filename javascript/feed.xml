@@ -3,83 +3,125 @@
     <title>MinoWu</title>
     <link href="http://minowu.com/javascript/feed.xml" rel="self" />
     <link href="http://minowu.com/javascript/" />
-    <updated>2012-09-06T22:08:22+00:00</updated>
+    <updated>2012-09-07T13:53:24+00:00</updated>
     <id>http://minowu.com/javascript/</id>
     <entry>
         <title type="html"><![CDATA[研究Javascript中images如何判断加载完成]]></title>
         <author><name>MinoWu</name><uri>http://minowu.com</uri></author>
         <link href="http://minowu.com/2012/javascript-images-complete.html"/>
         <published>2012-09-06T00:00:00+00:00</published>
-        <updated>2012-09-06T22:08:22+00:00</updated>
+        <updated>2012-09-07T13:53:24+00:00</updated>
         <id>http://minowu.com/2012/javascript-images-complete.html</id>
         <category scheme="http://minowu.com/tag/javascript/" term="javascript" label="javascript" />
         <content type="html" xml:base="http://minowu.com" xml:lang="en">
             <![CDATA[ <h3>开篇</h3>
-<p>想要获得html中图片(img)的宽度和高度，必须要等到图片完成加载后，但是图片的加载总是会晚于DOM的生成。</p>
-<p>在jQuery下，开发者一般会在<strong>$(document).ready(function(){ &hellip; })</strong>中写入对于Javascript DOM操作的代码。但是如果在这个里面想要获得其图片的高度和宽度，得到的值大概是0吧。</p>
-<p>所以，我想要把图片何时加载完成研究透彻些，方便今后的项目开发。</p>
-<p><strong>目前简陋的解决方案（未多个游览器测试）</strong></p>
+<p>想要获得html中图片(img)的宽度和高度，必须要等到图片完成加载后，而不能茫然地将代码放在$(document).ready()里。</p>
+<p>html代码：</p>
 
-<pre><code>// jQuery插件
-$.fn.suitImage = function(options){
-    return this.each(function(){
+<pre><code>&lt;img src=&quot;img.jpg&quot; id=&quot;img&quot;&gt;</code></pre>
+<p>如果我们在<strong>$(document).ready(function(){ &hellip; })</strong>中写入获得图片的高度和宽度，便没法获得了。</p>
 
-        // self是DOM，$this是jQuery对象
-        var self = this,
-            $this = $(this),
-            suitImage;
-
-        // 判断self.complete的值
-        if(self.complete == true){
-            new SuitImage($this, options);
-        } else {
-            self.onload = function(){
-                new SuitImage($this, options);
-            }
-        }
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function(){
+        var img = $(&quot;#img&quot;),
+            width = img.width();
+            height = img.height();
+            // 高度和宽度将会等于0
     });
-}</code></pre>
+&lt;/script&gt;</code></pre>
+<p>通过这样的方式没有办法获得图片的宽度和高度，因为ready是在DOM生成后执行，而并不是在图片载入后执行，而图片没有载入，故所以没有办法获得图片的宽度和高度。</p>
+<p>那么我们可以通过什么方法来刚图片载入完成后执行下面的代码吗？</p>
 
 <blockquote>
 <p>对于images标签的一篇参考文章</p>
-<p>(<a href="http://hi.baidu.com/mataofq/item/c50b97cc6b0e7a3845941673">hi.baidu.com/mataofq/item/c50b97cc6b0e7a3845941673</a>)</p>
+<p><a href="http://hi.baidu.com/mataofq/item/c50b97cc6b0e7a3845941673">hi.baidu.com/mataofq/item/c50b97cc6b0e7a3845941673</a></p>
 </blockquote>
+<p>通过一些文章，我们想到了<strong>图片</strong>的<strong>complete</strong>属性和<strong>onload</strong>方法</p>
 
-<h3>images的complete和onload属性</h3>
-<p>在IE游览器中，不管images是否存在缓存，<strong>image.complete</strong>的值在图片加载完成前为<strong>false</strong>，加载完成后显示为<strong>true</strong>。</p>
-<p>而在Chrome，Firefox等游览器中，如果images存在缓存，那么<strong>image.complete</strong>从一开始就显示为<strong>true</strong>，而不会执行onload。</p>
+<h3>complete</h3>
+<p>是img DOM的一个属性，有一个值，true和false。</p>
+
+<h3>onload</h3>
+<p>是一个img DOM的方法；</p>
+<p>当img载入完成后，执行的一个方法；</p>
+<p>在IE游览器中，我们可以直接用以下的代码来实现图片完成载入后执行指定的方法，如：</p>
+
+<pre><code>var img = $(&quot;#img&quot;)[0]; // jQuery选择器后的[0]表示将jQuery对象转化为DOM对象
+
+img.onload = function(){
+    // this表示得是img的DOM对象，$(this)表示得是jQuery对象，width()方法是jQuery内的方法
+    // 也可以使用this.width，通过这样的方式直接获得img DOM对象的宽度属性
+
+    var width = $(this).width(),
+        height = $(this).height();
+
+    console.log(width, height);
+};</code></pre>
+<p>但在现实情况下，每个游览器的表现并不一样。</p>
+
+<h3>在IE游览器中</h3>
+<p>不管images是否存在缓存，<strong>image.complete</strong>的值在图片加载完成前为<strong>false</strong>，加载完成后显示为<strong>true</strong>。
+而加载完成后会执行onload。</p>
+
+<h3>在Chrome, Firefox等游览器中</h3>
+<p>如果图片没有缓存，那么会如IE游览器一般，complete先是false，加载完成后为true，同时完成后会执行onload方法。</p>
+<p>但是如果images存在缓存，那么<strong>image.complete</strong>从一开始就显示为<strong>true</strong>，并且不会执行onload方法。</p>
+<p>所以这个时候如果直接使用onload的方法的话，便会发生奇怪的一幕，只有在你连续按刷新键时，偶尔才出现下宽度和高度。</p>
+<p>那么我们要怎么解决呢？</p>
 
 <hr/>
-<p>所以最终我使用了上面的方法</p>
+<p>最后我使用了下面这样的方法。</p>
+<p>先判断complete是否为true，如果为ture，那么执行方法，如果为false，那么再执行onload方法。</p>
 
-<pre><code>if(self.complete == true){
+<pre><code>var img = $(&quot;#img&quot;)[0];
+
+var func = function(){
+    // ...执行函数
+};
+
+if(img.complete == true){
     func();
 } else {
-    self.onload = function(){
+    img.onload = function(){
         func();
     }
 }</code></pre>
 
 <h3>如果把这段代码写成一个通用方法或者jQuery插件的话</h3>
+<p>比如有了这样的jQuery接口，来执行图片完全加载后执行的代码</p>
 
 <pre><code>$('img').onComplete(function(){
     // ...图片完全载入后需要执行的代码
 });</code></pre>
-<p>jQuery插件代码</p>
+<p>那么为了可以使用上面这样的接口，那么下面我们的jQuery插件可以这样写</p>
 
-<pre><code>$.fn.onComplete = function(callback){
-    return this.each(function(){
-        var self = this;
-        if(self.complete == true){
-            callback();
-        } else {
-            self.onload = function(){
-                callback();
+<pre><code>// javascript闭包
+(function($){
+
+    &quot;use strict&quot;; //严格模式
+
+    //jQuery插件主体
+
+    $.fn.onComplete = function(callback){
+        return this.each(function(){
+
+            if(this.complete == true){
+                callback.call(this);    // 通过call的方法调用该函数
+            } else {
+                this.onload = function(){
+                    callback.call(this);
+                }
             }
-        }
-    });
-}</code></pre>
-<p>研究待续，第一篇啊，不要拍砖。</p>
+        });
+    }
+
+})(jQuery);</code></pre>
+
+<hr/>
+
+<hr/>
+<p>研究待续</p>
 ]]>
         </content>
     </entry>
